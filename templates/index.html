@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Electricity Bill</title>        
+        <link href="{% static 'https://fonts.gstatic.com' %}" rel="preconnect">
+        <link href="{% static 'https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap' %}" rel="stylesheet">
+        <link href="{% static 'https://fonts.googleapis.com/css2?family=Lateef&display=swap' %}" rel="stylesheet">
+        <link href="{% static 'styles.css' %}" rel="stylesheet">
+        <style>
+           
+        </style>
+    </head>
+    <body class="bgimage1">
+    <main>
+        <header class="header">
+            <nav class="navbar">
+                <div class="navbar__container">
+                    <a href="" id="navbar__logo">Electricity Bill Generator</a><img src="{% static 'Images/elec1.png' %}" style="height: 70px;">
+                </div>
+            </nav>
+        </header>
+            <div>
+                <!--<img src="{% static 'Images/FN1.png'%}" alt="" style='font-family: "Cinzel, serif";height:400px;margin-top: 150px; margin-right: 150px;' align=right >
+                -->
+                <section class="positioning">
+                    <center>
+                   <table border =1>
+                       <tr>
+                           <th>Customer Name</th>
+                           <th>Customer Id</th>
+                           <th>Email</th>
+                           <th>Date</th>
+                           <th>City</th>
+                           <th>Address</th>
+                           <th>Utility</th>
+                           <th>Units</th>
+                           <th>Total Amount</th>
+                           <th>Copy</th>
+                    </tr>
+                    {% for result in data %}
+                    <tr>
+                        <td>{{result.c_name}}</td>
+                        <td>{{result.c_id}}</td>
+                        <td>{{result.c_email}}</td>
+                        <td>{{result.c_date}}</td>
+                        <td>{{result.c_city}}</td>
+                        <td>{{result.c_address}}</td>
+                        <td>{{result.utility}}</td>
+                        <td>{{result.units}}</td>
+                        <td>Rs.{{result.bill}}</td>
+                        <td>{{result.copy}}</td>
+                        <td><a href="edit/{{result.id}}">Edit</a></td>
+                        <td><a href="delete/{{result.id}}" onclick="return confirm('Pakka?')">Delete</a></td>
+
+                    </tr>
+                        {% endfor %}
+                   </table> 
+                </center>
+                </section>
+                <br><br><br><br>
+                <center>
+                    <a class="signupbtn" style="font-size:20px;text-decoration: none;color:rgb(255, 255, 255)" href="{% url 'insertbill' %}">Generate Electricity Bill</a>
+                </center> 
+            </div>
+        </main>
+        
+    </body>
+    
+    <br><br>
+</html>

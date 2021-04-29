@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Electricity Bill</title>        
+        <link href="{% static 'https://fonts.gstatic.com' %}" rel="preconnect">
+        <link href="{% static 'https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap' %}" rel="stylesheet">
+        <link href="{% static 'https://fonts.googleapis.com/css2?family=Lateef&display=swap' %}" rel="stylesheet">
+        <link href="{% static 'styles.css' %}" rel="stylesheet">
+        <style>
+           
+        </style>
+    </head>
+    <body class="bgimage1">
+    <main>
+        <header class="header">
+            <nav class="navbar">
+                <div class="navbar__container">
+                    <a href="{%url 'showbill'%}" id="navbar__logo">Electricity Bill Generator</a><img src="{% static 'Images/elec1.png' %}" style="height: 70px;">
+                </div>
+            </nav>
+        </header>
+            <div>
+                <!--<img src="{% static 'Images/FN1.png'%}" alt="" style='font-family: "Cinzel, serif";height:400px;margin-top: 150px; margin-right: 150px;' align=right >
+                -->
+                    <section class="positioning">
+                
+                    <form method="POST" action='/update/{{elecbill.id}}'>
+                        {% csrf_token %}
+                        <div class="UserContainer" style="margin-left: 310px; width: 500px;">
+                            <label for="c_name" style="font-size: 21px;">Consumer Name</label>
+                            <br>
+                            <input type="text" value="{{elecbill.c_name}}" name="c_name" required>
+                            <br> <br>
+                            <label for="c_id" style="font-size: 21px;">Consumer Id</label>
+                            <br>
+                            <input type="text" value="{{elecbill.c_id}}" name="c_id" required>
+                            <br> <br>
+                            <label for="c_email" style="font-size: 21px;">Consumer Email Address</label>
+                            <br>
+                            <input type="text" value="{{elecbill.c_email}}" name="c_email" required>
+                            <br>
+                            <br>
+                            <label for="c_date" style="font-size: 21px;">Date of Issue</label><br>
+                            <input type="date" value="{{elecbill.c_date}}" name="c_date">
+                            <br>
+                            <br>
+                            <label for="c_city" style="font-size: 21px;">City</label>
+                            <br>
+                            <input type="text" value="{{elecbill.c_city}}" name="c_city">
+                            <br>
+                            <br>
+                            <label for="c_address" style="font-size: 21px;">Consumer Address</label>
+                            <br>
+                            <input  type="text" value="{{elecbill.c_address}}" name="c_address" required>
+                            <br>
+                            <br>
+                            <label for="utility" style="font-size: 21px;">Utility Type</label>
+                            <br>
+                            <br>
+                            <input type="text" value="{{elecbill.utility}}" name="utility" required>
+                            <br>
+                            <br>
+                            <label for="units" style="font-size: 21px;">Units Consumed</label>
+                            <br>
+                            <input type="text" value="{{elecbill.units}}" name="units" required>
+                            <br>
+                            <br>
+                            <label for="bill" style="font-size: 21px;">Total Amount Due</label>
+                            <br>
+                            <input type="text" value="{{elecbill.bill}}" name="bill" required>
+                            <br><br>
+                            <label for="copy" style="font-size: 21px;">Copy</label>
+                            <br>
+                            <input type="text" value="{{elecbill.copy}}" name="copy" required>
+                            <br><br>
+                            <center>
+                            <input type="submit" value="Submit">
+                            </center>
+                            <br>
+                            <br>
+                        </div>
+                        <br><br>
+                    </form>
+                    {% if messages%}
+                    {% for mess in messages%}
+                    {{mess}}
+                    {% endfor %}
+                    {% endif %}
+                </section>
+                
+            </div>
+        </main>
+        
+    </body>
+    
+    <br><br>
+</html>
+

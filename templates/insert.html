@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Electricity Bill</title>        
+        <title>Electricity Bill/Insert</title>        
         <link href="{% static 'https://fonts.gstatic.com' %}" rel="preconnect">
         <link href="{% static 'https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap' %}" rel="stylesheet">
         <link href="{% static 'https://fonts.googleapis.com/css2?family=Lateef&display=swap' %}" rel="stylesheet">
@@ -23,21 +23,26 @@
                 </div>
             </nav>
         </header>
-            <div>
-                <!--<img src="{% static 'Images/FN1.png'%}" alt="" style='font-family: "Cinzel, serif";height:400px;margin-top: 150px; margin-right: 150px;' align=right >
-                -->
-                    <section class="positioning">
-                
+                <div style="height: auto;">
+                    <br><br>
+                    <center>
+                    <b style="font-size: 40px;">Generate Bill</b>       
+                    </center>         
                     <form method="POST">
                         {% csrf_token %}
-                        <div class="UserContainer" style="margin-left: 310px; width: 500px;">
+                        <div class="UserContainer" style="margin-top:2em;margin-left: 390px; width: 500px;">
                             <label for="c_name" style="font-size: 21px;">Consumer Name</label>
                             <br>
                             <input type="text" placeholder="Enter Name" name="c_name" required>
-                            <br> <br>
+                            <br><br>
                             <label for="c_id" style="font-size: 21px;">Consumer Id</label>
                             <br>
                             <input type="text" placeholder="Enter Id" name="c_id" required>
+                            <br> <br>
+                            <label for="c_img" style="font-size: 21px;">Consumer Image</label>
+                            <br>
+                            <input type="file" accept="image/*" name="c_img" style="font-size: 15px; color:rgb(116, 121, 121);height:30px;
+                            width:200px;">
                             <br> <br>
                             <label for="c_email" style="font-size: 21px;">Consumer Email Address</label>
                             <br>
@@ -82,6 +87,7 @@
                             <input type="text" placeholder="Enter Amount" name="bill" required>
                             <br>
                             <br>
+                            
                             <label for="copy" style="font-size: 21px;margin-right:1em;">Send copy to consumer:</label>
                     
                             <input type="checkbox" id="Yes" name="copy" value="Yes">
@@ -91,24 +97,26 @@
                             <br>
                             <br> <br>
                             <center>
-                            <input type="submit" value="submit">
+                            <input type="submit" value="Submit" style="font-size: 20px; background-color: #b4cbe9; padding:5px 10px">
                             </center>
                             <br>
                             <br>
+                            {% if messages%}
+                            {% for mess in messages%}
+                            {{mess}}
+                            {% endfor %}
+                            {% endif %}
                         </div>
                         <br><br>
                     </form>
-                    {% if messages%}
-                    {% for mess in messages%}
-                    {{mess}}
-                    {% endfor %}
-                    {% endif %}
-                </section>
-                
+                </div>
+            <div>
             </div>
         </main>
         
+        
     </body>
+    
     
     <br><br>
 </html>

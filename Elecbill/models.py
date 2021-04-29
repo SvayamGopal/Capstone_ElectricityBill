@@ -5,6 +5,7 @@ from django.db import models
 class elecbill(models.Model):
     c_name= models.CharField(max_length=100)
     c_id=models.CharField(max_length=100)
+    c_img=models.CharField(max_length=100)
     c_email=models.CharField(max_length=100)
     c_date=models.CharField(max_length=100)
     c_city=models.CharField(max_length=100)

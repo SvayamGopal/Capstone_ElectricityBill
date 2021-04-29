@@ -6,6 +6,9 @@ from Elecbill.forms import Elecform
 
 # Create your views here.
 
+def index(request):
+    dests = elecbill.objects.all()
+    return render(request,'edit.html',{'dests':dests})
 
 
 def showbill(request):
@@ -15,10 +18,11 @@ def showbill(request):
 
 def insertbill(request):
     if request.method == "POST":
-        if request.POST.get('c_name') and request.POST.get('c_id') and request.POST.get('c_email') and request.POST.get('c_date') and request.POST.get('c_city') and request.POST.get('c_address') and request.POST.get('utility') and request.POST.get('units') and request.POST.get('bill') and request.POST.get('copy'):
+        if request.POST.get('c_name') and request.POST.get('c_id') and request.POST.get('c_img') and request.POST.get('c_email') and request.POST.get('c_date') and request.POST.get('c_city') and request.POST.get('c_address') and request.POST.get('utility') and request.POST.get('units') and request.POST.get('bill') and request.POST.get('copy'):
             saverecord=elecbill()
             saverecord.c_name=request.POST.get('c_name')
             saverecord.c_id=request.POST.get('c_id')
+            saverecord.c_img=request.POST.get('c_img')
             saverecord.c_email=request.POST.get('c_email')
             saverecord.c_date=request.POST.get('c_date')
             saverecord.c_city=request.POST.get('c_city')

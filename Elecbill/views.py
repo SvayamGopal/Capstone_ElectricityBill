@@ -6,11 +6,6 @@ from Elecbill.forms import Elecform
 
 # Create your views here.
 
-def index(request):
-    dests = elecbill.objects.all()
-    return render(request,'edit.html',{'dests':dests})
-
-
 def showbill(request):
     showall=elecbill.objects.all()
     return render(request, 'index.html',{"data":showall})

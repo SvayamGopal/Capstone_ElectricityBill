@@ -1,0 +1,139 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Electricity Bill/Index</title>        
+        <link href="{% static 'https://fonts.gstatic.com' %}" rel="preconnect">
+        <link href="{% static 'https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap' %}" rel="stylesheet">
+        <link href="{% static 'https://fonts.googleapis.com/css2?family=Lateef&display=swap' %}" rel="stylesheet">
+        <link href="{% static 'styles.css' %}" rel="stylesheet">
+        <style>
+            .Phooter {
+                height: 75px;
+                background-color: rgb(34, 33, 33);
+
+                position: relative;
+                margin-top: 18em;
+
+            }
+            .ea {
+                font-size: 30px;
+                text-decoration: none;
+                color:rgb(255, 255, 255);
+            }
+
+            .ea:hover{
+                
+                color: tomato;
+            }
+            
+            .aa {
+                width: fit-content;
+                margin-top: 100px;
+                text-decoration:none;
+                color:white;
+                padding: 20px;
+                font-size: 19px;
+            }
+
+            .aa:hover {
+                color: tomato;
+            }
+           
+            .ab {
+                width: fit-content;
+                margin-top: 100px;
+                text-decoration:none;
+                color:rgb(43, 44, 121);
+                padding: 20px;
+                font-size: 19px;
+            }
+
+            .ab:hover {
+                color: tomato;
+            }
+
+            .td {
+                text-align: center;
+            }
+        </style>
+    </head>
+    
+    <body class="bgimage1">
+    <main>
+        <header class="header">
+            <nav class="navbar">
+                <div class="navbar__container">
+                    <a href="" id="navbar__logo">Electricity Bill Generator</a><img src="{% static 'Images/elec1.png' %}" style="height: 70px;">
+                </div>
+            </nav>
+        </header>
+            <div>
+                <!--<img src="{% static 'Images/FN1.png'%}" alt="" style='font-family: "Cinzel, serif";height:400px;margin-top: 150px; margin-right: 150px;' align=right >
+                -->
+                <img src="{{elecbill.c_img.url}}">
+                <section class="positioning">
+                   <table border =4 style="background-color: #fff;">
+                       <tr>
+                           <th style="padding: 10px 15px;">Customer Name</th>
+                           <th style="padding: 10px 15px;">Customer Id</th>
+                           <th style="padding: 10px 15px;">Customer Image</th>
+                           <th style="padding: 10px 15px;">Email</th>
+                           <th style="padding: 10px 30px;">Date</th>
+                           <th style="padding: 10px 15px;">City</th>
+                           <th style="padding: 10px 15px;">Address</th>
+                           <th style="padding: 10px 15px;">Utility</th>
+                           <th style="padding: 10px 15px;">Units</th>
+                           <th style="padding: 10px 15px;">Total Amount</th>
+                           <th style="padding: 10px 15px;">Copy</th>
+                           <th style="padding: 10px 15px;">Edit</th>
+                           <th style="padding: 10px 15px;">Delete</th>
+                    </tr>
+                    {% for result in data %}
+                    <tr>
+                        <td>{{result.c_name}}</td>
+                        <td>{{result.c_id}}</td>
+                        
+                        <td><img src="media/{{result.c_img}}" alt="" width=50 height=50></td>
+                        
+                        <td>{{result.c_email}}</td>
+                        <td>{{result.c_date}}</td>
+                        <td>{{result.c_city}}</td>
+                        <td>{{result.c_address}}</td>
+                        <td>{{result.utility}}</td>
+                        <td>{{result.units}}</td>
+                        <td>Rs.{{result.bill}}</td>
+                        <td>{{result.copy}}</td>
+                        <td><a class='ab' href="edit/{{result.id}}">Edit</a></td>
+                        <td><a class='ab' href="delete/{{result.id}}" onclick="return confirm('Delete confrimation.')">Delete</a></td>
+                        
+                    </tr>
+                        {% endfor %}
+                   </table> 
+                </center>
+                </section>
+                <br><br>
+                <center>
+                    <a class="ea" href="{% url 'insertbill' %}">Generate Electricity Bill</a>
+                </center> 
+            </div>
+        </main>
+        <footer class="Phooter">
+            <center>
+                <div style="padding-top: 30px;">
+            <a href="" class="aa">About Us</a>
+            <a href="" class="aa">Partner with us</a>
+            <a href="" class="aa">Terms & Conditions</a>
+            <a href="" class="aa">Blog</a>
+            <a href="" class="aa">24x7 Help</a>
+            <a href="" class="aa">Grievance policy</a>
+            <a href="" class="aa">Bug bounty</a>
+            <a href="" class="aa">Recharge Partners</a>
+                </div>
+            </center>
+        </footer>
+    </body>
+</html>

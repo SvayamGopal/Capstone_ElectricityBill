@@ -26,11 +26,13 @@
             <div>
                 <br><br>
                     <center>
-                    <b style="font-size: 40px;">Edit Bill</b>       
+                    <b style="font-size: 40px;color:rgb(34, 33, 33);">Edit Bill</b>       
                     </center> 
                 <section class="positioning">
                     <form method="POST" action='/update/{{elecbill.id}}'>
                         {% csrf_token %}
+                        
+                        <img src="{{ elecbill.c_image.url}}" width="250">
                         <div class="UserContainer" style="margin-left: 350px; width: 500px;">                            <br>
                             <input type="text" value="{{elecbill.c_name}}" name="c_name" required>
                             <br> <br>

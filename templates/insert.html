@@ -25,8 +25,9 @@
         </header>
                 <div style="height: auto;">
                     <br><br>
-                    <center>
-                    <b style="font-size: 40px;">Generate Bill</b>       
+                    <center>    
+                    <b style="font-size: 40px;color: rgb(34, 33, 33);">Generate Bill</b>       
+ 
                     </center>         
                     <form method="POST">
                         {% csrf_token %}
@@ -46,7 +47,7 @@
                             <br> <br>
                             <label for="c_email" style="font-size: 21px;">Consumer Email Address</label>
                             <br>
-                            <input type="text" placeholder="Example@email.com" name="c_email" required>
+                            <input type="email" placeholder="Example@email.com" name="c_email" style="padding:15px 0px;font-size: 15px; color:rgb(116, 121, 121);height:30px;padding-left:5px;width:440px;" required>
                             <br>
                             <br>
                             <label for="c_date" style="font-size: 21px;">Date of Issue</label><br>

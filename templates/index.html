@@ -74,6 +74,7 @@
             <div>
                 <!--<img src="{% static 'Images/FN1.png'%}" alt="" style='font-family: "Cinzel, serif";height:400px;margin-top: 150px; margin-right: 150px;' align=right >
                 -->
+                <img src="{{elecbill.c_img.url}}">
                 <section class="positioning">
                    <table border =4 style="background-color: #fff;">
                        <tr>
@@ -95,7 +96,9 @@
                     <tr>
                         <td>{{result.c_name}}</td>
                         <td>{{result.c_id}}</td>
-                        <td>{{result.c_img}}</td>
+                        
+                        <td><img src="media/{{result.c_img}}" alt="" width=50 height=50></td>
+                        
                         <td>{{result.c_email}}</td>
                         <td>{{result.c_date}}</td>
                         <td>{{result.c_city}}</td>

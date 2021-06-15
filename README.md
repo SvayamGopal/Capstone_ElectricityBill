@@ -21,3 +21,6 @@ Using <b>Django</b> and <b>PostgreSQL</b>
 
 <img src="images/Crud7.png" height="400">
 
+<h2>PostgreSQL</h2>
+<img src="images/Crud8.png" height="400">
+
